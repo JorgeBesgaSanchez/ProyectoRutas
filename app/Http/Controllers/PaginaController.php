@@ -4,43 +4,50 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
-use Session;
+
+//use Session;
 
 class PaginaController extends Controller
 {
-    public function deportes() {
+    public function deportes()
+    {
         $title = 'Actividades';
 
         return view('paginas.deportes', compact('title', 'actividades'));
     }
 
-    public function datos() {
+    public function datos()
+    {
         $title = 'Datos';
 
         return view('paginas.datos', compact('title', 'datos'));
     }
 
-    public function login() {
+    public function login()
+    {
         $title = 'Login';
 
-        return view('paginas.login',compact('title', 'login'));
+        return view('paginas.login', compact('title', 'login'));
     }
 
-    public function registro() {
+    public function registro()
+    {
         $title = 'Registro';
 
         return view('paginas.registro', compact('title', 'registro'));
     }
 
-    public function senderos() {
+    public function senderos()
+    {
         $title = 'Senderos';
 
         return view('paginas.senderos', compact('title', 'senderos'));
     }
 
+    //guarda el usuario registrado
     public function store(Request $request)
     {
-    //dd($request);
+        //dd($request);
         //validamos lo que nos llega del formulario
         $request->validate(
             [
@@ -49,11 +56,11 @@ class PaginaController extends Controller
                 'contraseña' => 'required',
             ]
         );
-        
+
         //dd('validado');
 
         //encripto la contraseña
-        $pass = bcrypt($request['contraseña']);
+        $pass = md5($request['contraseña']);
 
         //dd($request->contraseña);
 
@@ -71,30 +78,34 @@ class PaginaController extends Controller
         return redirect()->route('inicio');
     }
 
-    public function entrar(Request $request, Usuario $usuario) {
-        //dd($request);
-        //validamos
+    //comprueba el email y la contraseña que nos llegan del formulario
+    public function entrar(Request $request)
+    {
+        //validamos campos del formulario
         $request->validate(
             [
-                'email' => 'required|unique:usuarios,email',
-                'contraseña' => 'required',
+                'email' => 'required',
+                'contraseña' => 'required'
             ]
         );
 
-
         $email = $request->email;
-        $contraseña = $request->contraseña;
-        //dd($email, $contraseña);
-        //buscar en la tabla usuarios el email y que la contraseña coincida
+        $contraseña = md5($request->contraseña);
 
-        if(!Hash::check($contraseña,Auth::user()->contraseña)){
-            return "";
-            
+        $resultado = Usuario::validar($request, $email, $contraseña);
 
-        $usuario = Usuario::where('email', $email)
-                                ->where('contraseña', $contraseña)                    
-                                ->get();
-        dd($usuario);
+
+        //si el los datos no son válidos, me devolverá un null
+        if ($resultado == null) {
+            $request->session()->flash('message', 'Email o contraseña inválidos');
+            //redirijo a la pagina de login
+            return redirect()->route('paginas.login');
+
+        } else {
+            $request->session()->flash('message', 'Te has logeado correctamente');
+            return redirect()->route('inicio');
+        }
+
     }
 }
 

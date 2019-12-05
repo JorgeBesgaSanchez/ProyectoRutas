@@ -11,9 +11,9 @@
 
     <!-- muestro el título si no es null, si es null, página inicio -->
     @if(! empty($title))
-        <title>{{ $title }}</title>
+    <title>{{ $title }}</title>
     @else
-        <title>Inicio</title>
+    <title>Inicio</title>
     @endif
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sticky-footer-navbar/">
@@ -59,22 +59,34 @@
                     <a class="nav-link" href="{{ route('inicio' )}}">Inicio<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('datos' )}}">Datos prácticos<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('datos' )}}">Datos prácticos<span
+                                class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('senderos' )}}">Senderos<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('senderos' )}}">Senderos<span
+                                class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('deportes' )}}">Actividades<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('registro' )}}"><strong>Registrate</strong><span
-                            class="sr-only">(current)</span></a>
+                                class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('login' )}}"><strong>Logeate</strong><span
-                            class="sr-only">(current)</span></a>
+                                class="sr-only">(current)</span></a>
                 </li>
+
+
+                <li class="nav-item active float-right">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </li>
+
+
             </ul>
         </div>
     </nav>
@@ -144,22 +156,22 @@
         <div class="col-10 mt-5"><!-- CONTENEDOR COLUMNA CONTENIDO PRINCIPAL -->
             <!-- Zona de mensajes -->
             @if(Session::has('message'))
-                <div class="container mt-3">
-                    <p class="alert alert-info">{{Session::get('message') }}</p>
-                </div>
+            <div class="container mt-3">
+                <p class="alert alert-info">{{Session::get('message') }}</p>
+            </div>
             @endif
 
             @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $miError)
-                            <li>{{$miError}}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $miError)
+                    <li>{{$miError}}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
 
-        <!---------- CONTENIDO ---------->
+            <!---------- CONTENIDO ---------->
             <div class="container">
                 @yield('contenido')
             </div>

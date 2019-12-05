@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Contraseña</label>
-            <input type="text" name="contraseña" class="form-control" id="contraseña"
+            <input type="password" name="contraseña" class="form-control" id="contraseña"
                    value="{{ $usuario['contraseña'] }}">
         </div>
         <div class="form-group">

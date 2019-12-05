@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Contraseña</label>
-            <input type="text" name="contraseña" class="form-control" id="contraseña" placeholder="">
+            <input type="password" name="contraseña" class="form-control" id="contraseña" placeholder="">
         </div>
         <div class="form-group">
             <input class="btn btn-success" type="submit" name="crear" id="crear" value="Crear"/>

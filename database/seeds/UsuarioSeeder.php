@@ -23,19 +23,19 @@ class UsuarioSeeder extends Seeder
         DB::table('usuarios')->insert([
             'nombre' => 'Jorge',
             'email' => 'jorge@email.com',
-            'contraseña' => bcrypt('secreto')
+            'contraseña' => md5('secreto')
         ]);
 
         DB::table('usuarios')->insert([
             'nombre' => 'Usuario',
             'email' => 'usuario@email.com',
-            'contraseña' => bcrypt('secreto')
+            'contraseña' => md5('secreto')
         ]);
 
         DB::table('usuarios')->insert([
             'nombre' => 'Prueba',
             'email' => 'prueba@email.com',
-            'contraseña' => bcrypt('secreto')
+            'contraseña' => md5('secreto')
         ]);
         */
 
@@ -49,19 +49,19 @@ class UsuarioSeeder extends Seeder
         Usuario::create([
             'nombre' => 'Jorge',
             'email' => 'jorge@email.com',
-            'contraseña' => bcrypt('secreto')
+            'contraseña' => md5('secreto')
         ]);
 
         Usuario::create([
             'nombre' => 'Usuario',
             'email' => 'usuario@email.com',
-            'contraseña' => bcrypt('secreto')
+            'contraseña' => md5('secreto')
         ]);
 
         Usuario::create([
             'nombre' => 'Prueba',
             'email' => 'prueba@email.com',
-            'contraseña' => bcrypt('secreto')
+            'contraseña' => md5('secreto')
         ]);
 
         // TRABAJANDO CON LOS MODELS FACTORIES

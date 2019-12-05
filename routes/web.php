@@ -45,7 +45,7 @@ Route::get('/senderos', function () {
 })->name('senderos');
 
 Route::resource('paginas', 'PaginaController');
-Route::post('login', 'PaginaController@entrar')->name('paginas.entrar');
+Route::post('login', 'PaginaController@entrar')->name('paginas.login');
 
 
 Route::resource('tipo_marchas', 'TipoMarchaController'); // index, show

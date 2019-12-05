@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Signin Template · Bootstrap</title>
+    <title>Registro</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
 
@@ -84,13 +83,13 @@
         <img class="mb-4" src="{{ asset('img/logos/logo-traspies.png') }}" alt="" width="300">
         <h1 class="h3 mb-3 font-weight-normal">Por favor, registrese</h1>
 
-        <label for="inputNombre" class="sr-only">Nombre</label>
+        <label for="nombre" class="sr-only">Nombre</label>
             <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required autofocus>
 
-        <label for="inputEmail" class="sr-only">Dirección de correo electrónico</label>
+        <label for="email" class="sr-only">Dirección de correo electrónico</label>
             <input type="email" name="email" id="email" class="form-control mt-2" placeholder="Email" required autofocus>
 
-        <label for="inputPassword" class="sr-only">Contraseña</label>
+        <label for="contraseña" class="sr-only">Contraseña</label>
             <input type="password" name="contraseña" id="contraseña" class="form-control mt-2" placeholder="Contraseña" required>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</button>

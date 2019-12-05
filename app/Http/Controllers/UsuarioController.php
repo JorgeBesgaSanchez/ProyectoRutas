@@ -54,7 +54,7 @@ class UsuarioController extends Controller
         
         //encripto la contraseña
         // ---------- NO UTILIZAR BCRYPT, UTILIZAR MD5 --------------
-        $pass = bcrypt($request['contraseña']);
+        $pass = md5($request['contraseña']);
 
         //dd($request->contraseña);
 
@@ -125,7 +125,7 @@ class UsuarioController extends Controller
             'nombre' => $request['nombre'],
             'email' => $request['email'],
             //la contraseña va encriptada
-            'contraseña' => bcrypt($request['contraseña']),
+            'contraseña' => md5($request['contraseña']),
         ]);
 
         //muestro mensaje de confirmacion
@@ -150,4 +150,7 @@ class UsuarioController extends Controller
         //redirigimos al listado
         return redirect()->route('usuarios.index');
     }
+
+    // ---------- METODOS AUXILIARES ----------
+    
 }

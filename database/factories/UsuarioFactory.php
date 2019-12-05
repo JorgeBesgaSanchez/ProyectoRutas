@@ -9,6 +9,6 @@ $factory->define(Usuario::class, function (Faker $faker) {
     return [
         'nombre' => $faker->name(),
         'email' => $faker->email(),
-        'contraseña' => bcrypt('secreto'),
+        'contraseña' => md5('secreto'),
     ];
 });

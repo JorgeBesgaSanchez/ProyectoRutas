@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Signin Template · Bootstrap</title>
+    <title>Login</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
 
@@ -75,8 +74,25 @@
 
 <div class="container-fluid text-center mt-5">
 
+    <!-- Zona de mensajes -->
+    @if(Session::has('message'))
+        <div class="container mt-3">
+            <p class="alert alert-info">{{Session::get('message') }}</p>
+        </div>
+    @endif
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $miError)
+                    <li>{{$miError}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <!-- Formulario -->
-    <form class="form-signin" name="entrar" method="POST" action="{{ route('paginas.entrar') }}"
+    <form class="form-signin" name="entrar" method="POST" action="{{ route('paginas.login') }}"
           enctype="application/x-www-form-urlencoded">
         <!-- PROTECCION CSRF -->
         @csrf
