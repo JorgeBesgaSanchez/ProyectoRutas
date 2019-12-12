@@ -138,8 +138,7 @@ class ActividadController extends Controller
         return redirect()->route('actividades.index');
     }
 
-    /* -------------------- METODOS AUXILIARES ------------------- */
-    /*public function get*/
+    
 
 
 

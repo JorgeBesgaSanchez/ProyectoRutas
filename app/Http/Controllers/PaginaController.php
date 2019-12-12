@@ -47,7 +47,6 @@ class PaginaController extends Controller
     //guarda el usuario registrado
     public function store(Request $request)
     {
-        //dd($request);
         //validamos lo que nos llega del formulario
         $request->validate(
             [
@@ -57,13 +56,9 @@ class PaginaController extends Controller
             ]
         );
 
-        //dd('validado');
-
         //encripto la contraseña
         $pass = md5($request['contraseña']);
-
-        //dd($request->contraseña);
-
+        
         // Creo situada si ha validado bien los datos
         Usuario::create([
             'nombre' => $request['nombre'],

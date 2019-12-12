@@ -42,10 +42,8 @@ class InscribeController extends Controller
     {
         // obtengo la fecha actual y la formateo
         $now = new \DateTime();
-        //$now = $now->format('d-m-Y H:i:s');
+        
         $now = $now->format('Y-m-d H:i:s');
-        //dd($now);
-        //dd($request);
 
         //validamos lo que nos llega del formulario
         $request->validate{[

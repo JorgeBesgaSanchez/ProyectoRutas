@@ -17,21 +17,7 @@ class ToponimoController extends Controller
     {
         $title = 'Toponimos';
         $toponimos = Toponimo::orderBy('nombre')->paginate(5); // PAGINACION A 5 RESULTADOS
-        //$item = Provincia::findByIdProvincia();
-        /*
-        foreach ($toponimos as $topo) {
-            //dd($topo->provincias());
-            //dd($provincias);
-            //$id = $provincias->id;
-            //dd($id);
-            //dd($topo->id_provincia);
-        }
-        */
-        /*
-        $topo = Toponimo::find(3);
-        $provincias = $topo->provincias();
-        dd($provincias);
-        */
+        
         return view('toponimos.index', compact('title', 'toponimos'));
     }
 

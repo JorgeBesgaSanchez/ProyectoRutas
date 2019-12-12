@@ -14,10 +14,6 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //echo md5('12345');
-        //echo "<br>";
-        //echo md5('12345');
-        //exit;
         $title = 'Usuarios';
         $usuarios = Usuario::orderBy('nombre')->paginate(5); // PAGINACION A 5 RESULTADOS
 
@@ -56,7 +52,6 @@ class UsuarioController extends Controller
         // ---------- NO UTILIZAR BCRYPT, UTILIZAR MD5 --------------
         $pass = md5($request['contraseña']);
 
-        //dd($request->contraseña);
 
         // Creo situada si ha validado bien los datos
         Usuario::create([
@@ -150,7 +145,5 @@ class UsuarioController extends Controller
         //redirigimos al listado
         return redirect()->route('usuarios.index');
     }
-
-    // ---------- METODOS AUXILIARES ----------
     
 }
